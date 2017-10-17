@@ -1,7 +1,7 @@
 import csv
 import re
 import time
-
+import sys
 from bs4 import BeautifulSoup
 from robobrowser import RoboBrowser
 
@@ -9,8 +9,11 @@ url = "http://mike.matthies.de/de/category/10208000000/"
 
 br = RoboBrowser(history=False)
 
-login_name = "658073000"
-login_pw = "online24"
+#login_name = "658073000"
+#login_pw = "online24"
+login_name = sys.argv[1]
+login_pw = sys.argv[2]
+
 
 n = 0
 

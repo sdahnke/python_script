@@ -48,8 +48,5 @@ def ebay_kleinanzeigen(login_name, login_pw, title, pic_path, description, price
     time.sleep(10)
     browser.quit()
 
-user = sys.argv[1]
-password = sys.argv[2]
-
-ebay_kleinanzeigen(user, password, """##TITLE##""", '##PIC##', """##DESC##""", '##PRICE##',
+ebay_kleinanzeigen('##USER##', '##PASSWORD##', """##TITLE##""", '##PIC##', """##DESC##""", '##PRICE##',
                    '##PLZ##', '##STREET##', '##COMPANY##', '##PHONE##')

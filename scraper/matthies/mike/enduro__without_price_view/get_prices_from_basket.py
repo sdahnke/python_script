@@ -1,6 +1,6 @@
 import csv
 import re
-
+import sys
 from bs4 import BeautifulSoup
 from robobrowser import RoboBrowser
 
@@ -8,8 +8,10 @@ url = "https://www.matthies.de/warenkorb/warenkorb.html?no_cache=1"
 
 br = RoboBrowser(history=False)
 
-login_name = "658073000"
-login_pw = "online24"
+#login_name = "658073000"
+#login_pw = "online24"
+login_name = sys.argv[1]
+login_pw = sys.argv[2]
 
 basket = []
 basket_products = []
