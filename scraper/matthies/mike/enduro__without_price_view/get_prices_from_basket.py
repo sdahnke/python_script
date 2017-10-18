@@ -39,34 +39,37 @@ for row in rows:
     vk_price = ""
     discount = ""
     ek_price = ""
-    for cell in cells:
+    try:
+        for cell in cells:
 
-        n = n + 1
-        cell = str(cell.text.strip())
+            n = n + 1
+            cell = str(cell.text.strip())
 
-        if n == 1:
-            position = str(cell)
-        elif n == 6:
-            search = re.search("([0-9]{3}).([0-9]{2}).([0-9]{2})#w1wkg", cell)
-            cell = search.group(1) + "." + search.group(2) + "." + search.group(3)
-            jmnr = str(cell)
-        elif n == 7:
-            prod = str(cell)
-        elif n == 9:
-            search = re.search("[^0-9]+([0-9,]+)", cell)
-            cell = search.group(1)
-            vk_price = str(cell)
-        elif n == 10:
-            search = re.search("([0-9,]+)%", cell)
-            cell = search.group(1)
-            discount = str(cell)
-        elif n == 12:
-            search = re.search("[^0-9]+([0-9,]+)", cell)
-            cell = search.group(1)
-            ek_price = str(cell)
+            if n == 1:
+                position = str(cell)
+            elif n == 6:
+                search = re.search("([0-9]{3}).([0-9]{2}).([0-9]{2})#w1wkg", cell)
+                cell = search.group(1) + "." + search.group(2) + "." + search.group(3)
+                jmnr = str(cell)
+            elif n == 7:
+                prod = str(cell)
+            elif n == 9:
+                search = re.search("[^0-9]+([0-9,]+)", cell)
+                cell = search.group(1)
+                vk_price = str(cell)
+            elif n == 10:
+                search = re.search("([0-9,]+)%", cell)
+                cell = search.group(1)
+                discount = str(cell)
+            elif n == 12:
+                search = re.search("[^0-9]+([0-9,]+)", cell)
+                cell = search.group(1)
+                ek_price = str(cell)
 
-    information = position + " | " + jmnr + " | " + prod + " | " + vk_price + " | " + discount + " | " + ek_price
-    print(information)
+        information = position + " | " + jmnr + " | " + prod + " | " + vk_price + " | " + discount + " | " + ek_price
+        print(information)
+    except:
+        print("Some Error!!!")
 
     if jmnr != "":
         with open("basket.csv", 'a', newline='') as csvfile:
