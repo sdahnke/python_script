@@ -11,8 +11,10 @@ br = RoboBrowser(history=False)
 
 #login_name = "658073000"
 #login_pw = "online24"
-login_name = sys.argv[1]
-login_pw = sys.argv[2]
+login_name = (sys.argv[1])
+login_pw = str(sys.argv[2])
+
+print("Eingelogt mit User: " + login_name + " und Password: " + login_pw)
 
 
 n = 0

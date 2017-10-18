@@ -13,6 +13,8 @@ br = RoboBrowser(history=False)
 login_name = sys.argv[1]
 login_pw = sys.argv[2]
 
+print("Eingelogt mit User: " + login_name + " und Password: " + login_pw)
+
 basket = []
 basket_products = []
 
