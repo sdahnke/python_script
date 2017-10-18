@@ -52,7 +52,7 @@ category_links = list(set(category_links))
 
 # sammle Kategorie-Links
 for category_link in category_links:
-    if re.search(".*Bremse.*", str(category_link)):
+    if re.search(".*" + str(sys.argv[3]) + ".*", str(category_link)):
         print(str(category_link['href']))
         category_list.append(str(category_link['href']))
 
