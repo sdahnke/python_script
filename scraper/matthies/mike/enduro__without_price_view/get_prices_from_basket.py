@@ -57,6 +57,8 @@ for row in rows:
             cell = search.group(1)
             vk_price = str(cell)
         elif n == 10:
+            search = re.search("([0-9,]+)%", cell)
+            cell = search.group(1)
             discount = str(cell)
         elif n == 12:
             search = re.search("[^0-9]+([0-9,]+)", cell)
