@@ -14,7 +14,7 @@ br = RoboBrowser(history=False)
 login_name = str(sys.argv[1])
 login_pw = str(sys.argv[2])
 
-print("Eingelogt mit User: " + login_name + " und Password: " + login_pw)
+print("Eingelogt mit User: " + login_name + " und Password: " + login_pw +" und suche nach Kategorie: " + str(sys.argv[3]))
 
 
 n = 0
