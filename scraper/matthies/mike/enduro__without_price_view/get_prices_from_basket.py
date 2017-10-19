@@ -1,5 +1,6 @@
 import csv
 import re
+import time
 import sys
 from bs4 import BeautifulSoup
 from robobrowser import RoboBrowser
@@ -8,10 +9,10 @@ url = "https://www.matthies.de/warenkorb/warenkorb.html?no_cache=1"
 
 br = RoboBrowser(history=False)
 
-#login_name = "658073000"
-#login_pw = "online24"
-login_name = str(sys.argv[1])
-login_pw = str(sys.argv[2])
+login_name = "658073000"
+login_pw = "online24"
+#login_name = str(sys.argv[1])
+#login_pw = str(sys.argv[2])
 
 print("Eingelogt mit User: " + login_name + " und Password: " + login_pw)
 
@@ -77,3 +78,16 @@ for row in rows:
             writer.writerow([jmnr, prod, vk_price, discount, ek_price])
 
 # Warenkorb leeren
+time.sleep(1)
+print('delete basket')
+url = 'https://mike.matthies.de/'
+def matthieslogin(url):
+    br.open(url)
+    form = br.get_form(id='quicklogin')
+    form["mcustno"] = login_name
+    form["mpassword"] = login_pw
+    br.session.headers["Referer"] = url
+    br.submit_form(form)
+matthieslogin(url)
+url = 'https://mike.matthies.de/de/basket/?delete_basket=all'
+br.open(url)
